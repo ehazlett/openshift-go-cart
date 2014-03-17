@@ -19,7 +19,7 @@ buildpack=$(dirname $(dirname $0))
 # Python
 venv=$cache/venv
 mkdir -p $cache/pip
-python=python2.6
+python=python2.7
 PATH=$venv/bin:$PATH
 
 #virtualenv() {
@@ -62,8 +62,7 @@ PATH=$GOROOT/bin:$PATH
 if ! (which hg >/dev/null 2>&1 && which bzr >/dev/null 2>&1)
 then
     echo -n "       Installing Virtualenv..."
-    #virtualenv --python $python --distribute --never-download --prompt='(venv) ' $venv 2>&1 > /dev/null 
-    virtualenv --python $python --distribute --never-download --prompt='(venv) ' $venv
+    virtualenv --python $python --distribute --never-download --prompt='(venv) ' $venv 2>&1 > /dev/null 
     . $venv/bin/activate 2>&1 > /dev/null
     echo " done"
 
